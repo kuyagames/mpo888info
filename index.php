@@ -16,8 +16,17 @@ $artParas = array_filter(array_map('trim', explode("\n", sv($s, 'about_art_body'
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title><?= e(sv($s,'site_name','NAMA') . sv($s,'site_accent','SITUS')) ?> — Info Promo &amp; Link Resmi</title>
-<meta name="description" content="Info promo, bonus member baru, bonus harian, extra bonus, dan link resmi terbaru. Update setiap hari.">
+<?php
+$metaTitle = sv($s, 'meta_title', sv($s,'site_name','NAMA') . sv($s,'site_accent','SITUS') . ' — Info Promo & Link Resmi');
+$metaDesc  = sv($s, 'meta_desc', 'Info promo, bonus member baru, bonus harian, extra bonus, dan link resmi terbaru. Update setiap hari.');
+?>
+<title><?= e($metaTitle) ?></title>
+<meta name="description" content="<?= e($metaDesc) ?>">
+<?php if (sv($s,'canonical') !== ''): ?><link rel="canonical" href="<?= e(sv($s,'canonical')) ?>">
+<?php endif; ?>
+<?php if (sv($s,'google_tag') !== ''): ?><?= sv($s,'google_tag') ?>
+
+<?php endif; ?>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">

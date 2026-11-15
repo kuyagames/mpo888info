@@ -15,7 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             /* ---- Pengaturan umum + banner About ---- */
             case 'settings_save':
                 foreach (['site_name','site_accent','menu1','menu2','about_eyebrow',
-                          'about_title','about_subtitle','about_lead','about_art_head','about_art_body'] as $k) {
+                          'about_title','about_subtitle','about_lead','about_art_head','about_art_body',
+                          'meta_title','meta_desc','google_tag','canonical'] as $k) {
                     set_setting($k, $_POST[$k] ?? '');
                 }
                 $err = null; $url = handle_upload('about_banner_file', $err);
@@ -152,6 +153,13 @@ $accOpts = function ($v) { $o=''; foreach (['purple','gold','pink'] as $k) $o.='
       </div>
       <label>Judul Artikel SEO<input name="about_art_head" value="<?= e(sv($s,'about_art_head')) ?>"></label>
       <label>Isi Artikel SEO (satu baris = satu paragraf)<textarea name="about_art_body" rows="5"><?= e(sv($s,'about_art_body')) ?></textarea></label>
+
+      <h3 style="margin:22px 0 2px">🔎 SEO &amp; Verifikasi</h3>
+      <label>Meta Title (judul tab &amp; hasil Google — kosong = otomatis dari nama situs)<input name="meta_title" value="<?= e(sv($s,'meta_title')) ?>"></label>
+      <label>Meta Description<textarea name="meta_desc" rows="2"><?= e(sv($s,'meta_desc')) ?></textarea></label>
+      <label>Canonical URL (mis. https://mpo888info.com/resmi)<input name="canonical" value="<?= e(sv($s,'canonical')) ?>"></label>
+      <label>Google Tag / Verifikasi (tempel tag lengkap: &lt;meta name="google-site-verification" ...&gt; atau script GA/GTM)<textarea name="google_tag" rows="3"><?= e(sv($s,'google_tag')) ?></textarea></label>
+
       <button class="btn gold" type="submit">💾 Simpan Pengaturan</button>
     </form>
   </section>
