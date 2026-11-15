@@ -1,0 +1,5 @@
+# Cegah eksekusi skrip di folder upload (keamanan)
+php_flag engine off
+<FilesMatch "\.(php|phtml|phar|pht|cgi|pl)$">
+  Require all denied
+</FilesMatch>

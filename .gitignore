@@ -1,0 +1,10 @@
+node_modules/
+*.log
+
+# Jangan commit config berisi password asli — pakai config.php.example
+config.php
+config.telegram*.php
+uploads/*
+!uploads/.gitkeep
+!uploads/.htaccess
+.DS_Store

@@ -1,0 +1,27 @@
+<?php
+/* =======================================================================
+   KONFIGURASI UTAMA — TEMPLATE
+   Di server: salin file ini jadi config.php lalu isi password asli.
+     cp config.php.example config.php && nano config.php
+   File config.php TIDAK di-commit (lihat .gitignore).
+   ======================================================================= */
+
+// ---- Database (MySQL) ----
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'promo_landing');
+define('DB_USER', 'promo_user');
+define('DB_PASS', 'GANTI_DENGAN_PASSWORD_DB');
+define('DB_CHARSET', 'utf8mb4');
+
+// ---- Upload gambar banner ----
+define('UPLOAD_DIR', __DIR__ . '/uploads');     // path fisik (jangan diubah kecuali paham)
+define('UPLOAD_URL', 'uploads');                // URL relatif dari root web
+define('MAX_UPLOAD', 2 * 1024 * 1024);          // batas 2 MB
+define('ALLOWED_EXT', ['jpg', 'jpeg', 'png', 'webp', 'gif']);
+
+// ---- Lain-lain ----
+date_default_timezone_set('Asia/Jakarta'); // WIB
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}

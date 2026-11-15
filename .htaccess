@@ -1,0 +1,51 @@
+# ============================================================
+#  mpo888info.com — cloaked subfolder landing page
+#  Butuh: mod_rewrite + mod_headers aktif, AllowOverride All
+# ============================================================
+
+DirectoryIndex index.php
+Options -Indexes
+
+RewriteEngine On
+
+# --- 4. Akses langsung /index.php dari luar → 301 ke /resmi ---
+#     Pakai THE_REQUEST (request asli browser), bukan URI hasil
+#     rewrite, supaya rewrite internal ke index.php TIDAK loop.
+RewriteCond %{THE_REQUEST} \s/+index\.php[\s?] [NC]
+RewriteRule ^ /resmi [R=301,L]
+
+# --- 3. /resmi dan alias /mobile → rewrite internal ke index.php ---
+RewriteRule ^(resmi|mobile)/?$ index.php [L]
+
+# --- 2. Root dari HP/tablet → redirect 302 ke /resmi ---
+RewriteCond %{HTTP_USER_AGENT} (android|iphone|ipod|ipad|mobile|windows\sphone|blackberry|opera\smini|iemobile) [NC]
+RewriteRule ^$ /resmi [R=302,L]
+
+# --- 1. Root dari desktop → maintenance 503, URL tetap "/" ---
+RewriteRule ^$ maintenance.php [L]
+
+# ============================================================
+#  KEAMANAN
+# ============================================================
+
+# 6. Blokir akses langsung ke file sensitif
+<FilesMatch "\.(sql|md|log|ini)$">
+  Require all denied
+</FilesMatch>
+
+# 7. Blokir semua dotfile (diawali titik): .htaccess, .git, dll.
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>
+
+# 8. Blokir file config rahasia
+<FilesMatch "^(config\.php|config\.telegram.*\.php)$">
+  Require all denied
+</FilesMatch>
+
+# 9. Header keamanan
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
