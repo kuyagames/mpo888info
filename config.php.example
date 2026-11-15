@@ -16,7 +16,7 @@ define('DB_CHARSET', 'utf8mb4');
 // ---- Upload gambar banner ----
 define('UPLOAD_DIR', __DIR__ . '/uploads');     // path fisik (jangan diubah kecuali paham)
 define('UPLOAD_URL', 'uploads');                // URL relatif dari root web
-define('MAX_UPLOAD', 2 * 1024 * 1024);          // batas 2 MB
+define('MAX_UPLOAD', 8 * 1024 * 1024);          // batas 8 MB (pastikan upload_max_filesize PHP >= ini)
 define('ALLOWED_EXT', ['jpg', 'jpeg', 'png', 'webp', 'gif']);
 
 // ---- Lain-lain ----
