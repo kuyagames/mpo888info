@@ -52,6 +52,14 @@ $metaDesc  = sv($s, 'meta_desc', 'Info promo, bonus member baru, bonus harian, e
 
 <!-- SECTION 1 — ABOUT -->
 <section class="hero" id="about">
+  <?php if ($heroImg !== '' && sv($s,'about_banner_full') === '1'): ?>
+  <div class="hero-banner-full reveal"><img src="<?= e($heroImg) ?>" alt="<?= e(sv($s,'site_name','NAMA') . sv($s,'site_accent','SITUS')) ?>"></div>
+  <div class="stats">
+    <?php foreach ($stats as $st): ?>
+      <div class="stat"><div class="num"><?= e($st['num']) ?></div><div class="lbl"><?= e($st['label']) ?></div></div>
+    <?php endforeach; ?>
+  </div>
+  <?php else: ?>
   <div class="hero-banner<?= $heroCls ?>"<?= $heroStyle ?>>
     <div class="aurora"></div>
     <div class="shine"></div>
@@ -68,6 +76,7 @@ $metaDesc  = sv($s, 'meta_desc', 'Info promo, bonus member baru, bonus harian, e
       <?php endforeach; ?>
     </div>
   </div>
+  <?php endif; ?>
 
   <article class="article reveal d1">
     <h2><?= e(sv($s,'about_art_head','Tentang Situs Ini')) ?></h2>

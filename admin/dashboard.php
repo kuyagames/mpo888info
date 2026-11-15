@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             case 'settings_save':
                 foreach (['site_name','site_accent','menu1','menu2','about_eyebrow',
                           'about_title','about_subtitle','about_lead','about_art_head','about_art_body',
-                          'meta_title','meta_desc','google_tag','canonical'] as $k) {
+                          'meta_title','meta_desc','google_tag','canonical','about_banner_full'] as $k) {
                     set_setting($k, $_POST[$k] ?? '');
                 }
                 $err = null; $url = handle_upload('about_banner_file', $err);
@@ -150,6 +150,7 @@ $accOpts = function ($v) { $o=''; foreach (['purple','gold','pink'] as $k) $o.='
       <div class="uploader">
         <div class="thumb"><?php if (sv($s,'about_banner')): ?><img src="../<?= e(sv($s,'about_banner')) ?>"><?php else: ?>Aurora (tanpa gambar)<?php endif; ?></div>
         <div class="uc"><label class="file">📁 Banner About<input type="file" name="about_banner_file" accept="image/*"></label>
+        <label class="chk"><input type="checkbox" name="about_banner_full" value="1" <?= sv($s,'about_banner_full')==='1'?'checked':'' ?>> Gambar penuh (tanpa teks hero)</label>
         <?php if (sv($s,'about_banner')): ?><label class="chk"><input type="checkbox" name="about_banner_clear" value="1"> Hapus gambar</label><?php endif; ?></div>
       </div>
       <label>Judul Artikel SEO<input name="about_art_head" value="<?= e(sv($s,'about_art_head')) ?>"></label>
