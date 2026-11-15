@@ -41,11 +41,8 @@ $metaDesc  = sv($s, 'meta_desc', 'Info promo, bonus member baru, bonus harian, e
   <div class="nav-inner">
     <div class="brand"><span class="dot">★</span><span><?= e(sv($s,'site_name','NAMA')) ?><b><?= e(sv($s,'site_accent','SITUS')) ?></b></span></div>
     <div class="menu">
-      <?php $mcolors = ['#c4b5fd', '#f9a8d4', '#7dd3fc']; // ungu, pink, biru muda
-            foreach ($groups as $i => $g): ?>
-        <a href="#group-<?= (int)$g['id'] ?>" style="color:<?= $mcolors[$i % count($mcolors)] ?>"><?= e($g['title']) ?></a>
-      <?php endforeach; ?>
-      <a href="#link" class="gold"><?= e(sv($s,'menu2','INFO LINK')) ?></a>
+      <a href="#promo">INFO BONUS</a>
+      <a href="#link" class="gold">INFO LINK</a>
     </div>
   </div>
 </nav>

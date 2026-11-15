@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             /* ---- Pengaturan umum + banner About ---- */
             case 'settings_save':
-                foreach (['site_name','site_accent','menu1','menu2','about_eyebrow',
+                foreach (['site_name','site_accent','menu1','about_eyebrow',
                           'about_title','about_subtitle','about_lead','about_art_head','about_art_body',
                           'meta_title','meta_desc','google_tag','canonical','about_banner_full'] as $k) {
                     set_setting($k, $_POST[$k] ?? '');
@@ -136,11 +136,7 @@ $accOpts = function ($v) { $o=''; foreach (['purple','gold','pink'] as $k) $o.='
         <label>Nama (depan)<input name="site_name" value="<?= e(sv($s,'site_name')) ?>"></label>
         <label>Nama (aksen emas)<input name="site_accent" value="<?= e(sv($s,'site_accent')) ?>"></label>
       </div>
-      <div class="g2">
-        <label>Eyebrow Section Bonus (teks kecil di atas judul bonus)<input name="menu1" value="<?= e(sv($s,'menu1')) ?>"></label>
-        <label>Label Menu Link (tombol emas di navbar)<input name="menu2" value="<?= e(sv($s,'menu2')) ?>"></label>
-      </div>
-      <p style="margin:-4px 0 12px;font-size:.82rem;opacity:.75">ℹ️ Teks <b>3 menu bonus</b> di navbar otomatis mengikuti <b>Judul Grup</b> — ubah di panel 🎁 Grup Bonus &amp; Promo di bawah.</p>
+      <label>Eyebrow Section Bonus (teks kecil di atas judul bonus)<input name="menu1" value="<?= e(sv($s,'menu1')) ?>"></label>
       <label>Eyebrow<input name="about_eyebrow" value="<?= e(sv($s,'about_eyebrow')) ?>"></label>
       <div class="g2">
         <label>Judul Banner<input name="about_title" value="<?= e(sv($s,'about_title')) ?>"></label>
