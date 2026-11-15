@@ -121,7 +121,7 @@ function render_group(array $g): string
     $inner  = '';
     foreach ($promos as $p) $inner .= render_promo($p, (int)$g['coin'] === 1);
 
-    return '<div class="group"><div class="group-label reveal">'
+    return '<div class="group" id="group-' . (int)$g['id'] . '"><div class="group-label reveal">'
         . '<h3><span class="ic" style="' . $icbg . '">' . e($g['icon']) . '</span> ' . e($g['title']) . '</h3>'
         . '<span class="line"></span><span class="tag">' . e($g['tag']) . '</span></div>'
         . '<div class="promos ' . $cols . '">' . $inner . '</div></div>';

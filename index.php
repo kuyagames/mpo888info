@@ -32,7 +32,9 @@ $artParas = array_filter(array_map('trim', explode("\n", sv($s, 'about_art_body'
   <div class="nav-inner">
     <div class="brand"><span class="dot">★</span><span><?= e(sv($s,'site_name','NAMA')) ?><b><?= e(sv($s,'site_accent','SITUS')) ?></b></span></div>
     <div class="menu">
-      <a href="#promo"><?= e(sv($s,'menu1','INFO PROMO')) ?></a>
+      <?php foreach ($groups as $g): ?>
+        <a href="#group-<?= (int)$g['id'] ?>"><?= e($g['title']) ?></a>
+      <?php endforeach; ?>
       <a href="#link" class="gold"><?= e(sv($s,'menu2','INFO LINK')) ?></a>
     </div>
   </div>
