@@ -137,9 +137,10 @@ $accOpts = function ($v) { $o=''; foreach (['purple','gold','pink'] as $k) $o.='
         <label>Nama (aksen emas)<input name="site_accent" value="<?= e(sv($s,'site_accent')) ?>"></label>
       </div>
       <div class="g2">
-        <label>Label Menu 1<input name="menu1" value="<?= e(sv($s,'menu1')) ?>"></label>
-        <label>Label Menu 2<input name="menu2" value="<?= e(sv($s,'menu2')) ?>"></label>
+        <label>Eyebrow Section Bonus (teks kecil di atas judul bonus)<input name="menu1" value="<?= e(sv($s,'menu1')) ?>"></label>
+        <label>Label Menu Link (tombol emas di navbar)<input name="menu2" value="<?= e(sv($s,'menu2')) ?>"></label>
       </div>
+      <p style="margin:-4px 0 12px;font-size:.82rem;opacity:.75">ℹ️ Teks <b>3 menu bonus</b> di navbar otomatis mengikuti <b>Judul Grup</b> — ubah di panel 🎁 Grup Bonus &amp; Promo di bawah.</p>
       <label>Eyebrow<input name="about_eyebrow" value="<?= e(sv($s,'about_eyebrow')) ?>"></label>
       <div class="g2">
         <label>Judul Banner<input name="about_title" value="<?= e(sv($s,'about_title')) ?>"></label>
