@@ -24,6 +24,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:
 .menu a{padding:9px 18px;border-radius:11px;font-weight:600;font-size:.9rem;letter-spacing:.3px;border:1px solid transparent;color:var(--muted);transition:.25s;position:relative}
 .menu a:hover{color:#fff;border-color:var(--glass-brd);background:var(--glass)}
 .menu a.gold{color:#140b22;background:linear-gradient(135deg,var(--gold-soft),var(--gold-deep));box-shadow:0 6px 18px rgba(245,158,11,.3)}
+.menu a.bonus{color:#140b22;background:linear-gradient(135deg,var(--purple),var(--gold));box-shadow:0 6px 18px rgba(168,85,247,.35)}
+.menu a.bonus:hover{color:#140b22}
 section{max-width:var(--maxw);margin:0 auto;padding:60px 20px}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--gold-soft);padding:6px 14px;border:1px solid rgba(251,191,36,.3);border-radius:999px;background:rgba(251,191,36,.06)}
 .eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px var(--gold);animation:pulseGlow 2s infinite}

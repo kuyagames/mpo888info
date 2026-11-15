@@ -41,7 +41,7 @@ $metaDesc  = sv($s, 'meta_desc', 'Info promo, bonus member baru, bonus harian, e
   <div class="nav-inner">
     <div class="brand"><span class="dot">★</span><span><?= e(sv($s,'site_name','NAMA')) ?><b><?= e(sv($s,'site_accent','SITUS')) ?></b></span></div>
     <div class="menu">
-      <a href="#promo">INFO BONUS</a>
+      <a href="#promo" class="bonus">INFO BONUS</a>
       <a href="#link" class="gold">INFO LINK</a>
     </div>
   </div>
