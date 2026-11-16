@@ -135,7 +135,7 @@ if ($fav !== '') { $fp = __DIR__ . '/' . ltrim($fav, '/'); if (is_file($fp) && (
   <div class="sec-head reveal">
     <span class="eyebrow"><?= e(sv($s,'menu2','INFO LINK')) ?></span>
     <h2>Daftar <span class="grad">Link &amp; Kontak</span> Resmi</h2>
-    <p>Untuk menghindari akses url yang bisa terblokir maka anda dapat selalu mengunjungi situs ini untuk melihat daftar link resmi situs mpo888. Selai itu terdapat juga kontak admin mpo888 aktif 24 jam yang dapat anda hubungin saat memerlukan bantuan.</p>
+    <p>Untuk menghindari akses url yang bisa terblokir maka anda dapat selalu mengunjungi situs ini untuk melihat daftar link resmi situs mpo888. Selain itu terdapat juga kontak admin mpo888 aktif 24 jam yang dapat anda hubungi saat memerlukan bantuan.</p>
   </div>
   <div class="links-wrap reveal d1">
     <div class="aurora"></div>
