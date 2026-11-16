@@ -88,14 +88,35 @@ if ($fav !== '') { $fp = __DIR__ . '/' . ltrim($fav, '/'); if (is_file($fp) && (
 <!-- SECTION 1 — ABOUT -->
 <section class="hero" id="about">
   <?php if ($heroImg !== '' && sv($s,'about_banner_full') === '1'): ?>
-  <div class="hero-banner-full reveal"><img src="<?= e($heroImg) ?>" alt="<?= e(sv($s,'site_name','NAMA') . sv($s,'site_accent','SITUS')) ?>"></div>
+  <?php /* Mode gambar penuh (tanpa teks hero) */ ?>
+  <div class="hero-banner-full reveal"><img src="<?= e($heroImg) ?>" alt="<?= e($siteName) ?>"></div>
   <div class="stats">
     <?php foreach ($stats as $st): ?>
       <div class="stat"><div class="num"><?= e($st['num']) ?></div><div class="lbl"><?= e($st['label']) ?></div></div>
     <?php endforeach; ?>
   </div>
+
+  <?php elseif ($heroImg !== ''): ?>
+  <?php /* Gambar penuh di atas (tak terhalang), teks di bawahnya */ ?>
+  <div class="hero-banner-full reveal"><img src="<?= e($heroImg) ?>" alt="<?= e($siteName) ?>"></div>
+  <div class="hero-copy reveal">
+    <span class="eyebrow"><?= e(sv($s,'about_eyebrow','Selamat Datang')) ?></span>
+    <h1><?= e(sv($s,'about_title')) ?> <span class="grad"><?= e(sv($s,'about_subtitle')) ?></span></h1>
+    <p class="lead"><?= e(sv($s,'about_lead')) ?></p>
+    <div class="hero-cta">
+      <a href="#promo" class="btn btn-bonus">🎁 Lihat Semua Promo</a>
+      <a href="#link" class="btn btn-gold">🔗 Link Resmi</a>
+    </div>
+  </div>
+  <div class="stats">
+    <?php foreach ($stats as $st): ?>
+      <div class="stat"><div class="num"><?= e($st['num']) ?></div><div class="lbl"><?= e($st['label']) ?></div></div>
+    <?php endforeach; ?>
+  </div>
+
   <?php else: ?>
-  <div class="hero-banner<?= $heroCls ?>"<?= $heroStyle ?>>
+  <?php /* Tanpa gambar: aurora + teks overlay */ ?>
+  <div class="hero-banner">
     <div class="aurora"></div>
     <div class="shine"></div>
     <span class="eyebrow"><?= e(sv($s,'about_eyebrow','Selamat Datang')) ?></span>
