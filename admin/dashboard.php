@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             case 'settings_save':
                 foreach (['site_name','site_accent','menu1','about_eyebrow',
                           'about_title','about_subtitle','about_lead','about_art_head','about_art_body',
-                          'meta_title','meta_desc','google_tag','canonical','about_banner_full','og_alt'] as $k) {
+                          'meta_title','meta_desc','google_tag','canonical','about_banner_full','og_alt','cta_url'] as $k) {
                     set_setting($k, $_POST[$k] ?? '');
                 }
                 $msgs = [];
@@ -150,6 +150,7 @@ $accOpts = function ($v) { $o=''; foreach (['purple','gold','pink'] as $k) $o.='
         <label>Nama (aksen emas)<input name="site_accent" value="<?= e(sv($s,'site_accent')) ?>"></label>
       </div>
       <label>Eyebrow Section Bonus (teks kecil di atas judul bonus)<input name="menu1" value="<?= e(sv($s,'menu1')) ?>"></label>
+      <label>URL Tombol DAFTAR / LOGIN (navbar)<input name="cta_url" value="<?= e(sv($s,'cta_url')) ?>" placeholder="https://..."></label>
       <label>Eyebrow<input name="about_eyebrow" value="<?= e(sv($s,'about_eyebrow')) ?>"></label>
       <div class="g2">
         <label>Judul Banner<input name="about_title" value="<?= e(sv($s,'about_title')) ?>"></label>

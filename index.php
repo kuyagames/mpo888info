@@ -81,6 +81,7 @@ if ($fav !== '') { $fp = __DIR__ . '/' . ltrim($fav, '/'); if (is_file($fp) && (
     <div class="menu">
       <a href="#promo" class="bonus">INFO BONUS</a>
       <a href="#link" class="gold">INFO LINK</a>
+      <a href="<?= e(sv($s,'cta_url','#')) ?>" class="cta" target="_blank" rel="noopener">DAFTAR / LOGIN</a>
     </div>
   </div>
 </nav>
@@ -133,8 +134,8 @@ if ($fav !== '') { $fp = __DIR__ . '/' . ltrim($fav, '/'); if (is_file($fp) && (
 <section id="link">
   <div class="sec-head reveal">
     <span class="eyebrow"><?= e(sv($s,'menu2','INFO LINK')) ?></span>
-    <h2>Daftar <span class="grad">Link Resmi</span> &amp; Alternatif</h2>
-    <p>Gunakan salah satu link resmi di bawah ini. Semua link dipantau dan diperbarui agar selalu dapat diakses.</p>
+    <h2>Daftar <span class="grad">Link &amp; Kontak</span> Resmi</h2>
+    <p>Untuk menghindari akses url yang bisa terblokir maka anda dapat selalu mengunjungi situs ini untuk melihat daftar link resmi situs mpo888. Selai itu terdapat juga kontak admin mpo888 aktif 24 jam yang dapat anda hubungin saat memerlukan bantuan.</p>
   </div>
   <div class="links-wrap reveal d1">
     <div class="aurora"></div>
