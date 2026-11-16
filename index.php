@@ -143,7 +143,7 @@ $favType = $fav !== '' ? ((strtolower(pathinfo($fav, PATHINFO_EXTENSION)) === 'p
 
 <footer>
   <div class="fbrand"><?= e(sv($s,'site_name','NAMA')) ?><span style="color:var(--gold-soft)"><?= e(sv($s,'site_accent','SITUS')) ?></span></div>
-  <p>© <span id="yr"></span> <?= e(sv($s,'site_name','NAMA') . sv($s,'site_accent','SITUS')) ?>. Semua informasi diperbarui secara berkala.</p>
+  <p>© <span id="yr"></span> <?= e(sv($s,'site_name','NAMA') . sv($s,'site_accent','SITUS')) ?>.COM — Situs ini berisikan informasi resmi bonus member baru, harian, extra bonus hingga link login terbaru situs mpo888.</p>
 </footer>
 
 <button class="toTop" id="toTop" aria-label="Kembali ke atas">↑</button>
