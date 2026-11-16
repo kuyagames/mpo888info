@@ -103,7 +103,7 @@ if ($fav !== '') { $fp = __DIR__ . '/' . ltrim($fav, '/'); if (is_file($fp) && (
     <div class="hero-overlays">
       <div class="hero-cta hero-cta-over">
         <a href="#promo" class="btn btn-bonus">🎁 Pilih Bonus</a>
-        <a href="#link" class="btn btn-gold">🔗 Link Baru</a>
+        <a href="#link" class="btn btn-gold">🔗 Link Terbaru</a>
       </div>
       <div class="stats stats-over">
         <?php foreach ($stats as $st): ?>
@@ -128,7 +128,7 @@ if ($fav !== '') { $fp = __DIR__ . '/' . ltrim($fav, '/'); if (is_file($fp) && (
     <p class="lead"><?= e(sv($s,'about_lead')) ?></p>
     <div class="hero-cta">
       <a href="#promo" class="btn btn-bonus">🎁 Pilih Bonus</a>
-      <a href="#link" class="btn btn-gold">🔗 Link Baru</a>
+      <a href="#link" class="btn btn-gold">🔗 Link Terbaru</a>
     </div>
     <div class="stats">
       <?php foreach ($stats as $st): ?>
