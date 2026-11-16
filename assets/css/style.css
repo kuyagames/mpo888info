@@ -121,6 +121,12 @@ section{max-width:var(--maxw);margin:0 auto;padding:60px 20px}
 .link-card:hover .go{transform:translateX(5px)}
 .live{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;color:#4ade80;font-weight:600}
 .live .pdot{width:7px;height:7px;border-radius:50%;background:#4ade80;box-shadow:0 0 8px #4ade80;animation:pulseGlow 1.6s infinite}
+/* Link-card ke-1: merah + zoom in-out; ke-2: oranye */
+.link-grid .link-card:nth-child(1){background:linear-gradient(135deg,#ff5a5a,#e11d2a,#a60d18);border-color:rgba(255,120,120,.55);box-shadow:0 10px 30px rgba(225,29,42,.35);animation:linkZoom 1.8s ease-in-out infinite}
+.link-grid .link-card:nth-child(2){background:linear-gradient(135deg,#ffb24d,#f97316,#c2410c);border-color:rgba(255,175,80,.55);box-shadow:0 10px 30px rgba(249,115,22,.32)}
+.link-grid .link-card:nth-child(1) .live,.link-grid .link-card:nth-child(2) .live{color:#fff}
+.link-grid .link-card:nth-child(1) .live .pdot,.link-grid .link-card:nth-child(2) .live .pdot{background:#fff;box-shadow:0 0 8px #fff}
+@keyframes linkZoom{0%,100%{transform:scale(1)}50%{transform:scale(1.045)}}
 footer{text-align:center;padding:40px 20px 60px;color:var(--muted);font-size:.82rem}
 footer .fbrand{font-family:'Sora';font-weight:800;font-size:1.1rem;color:var(--text);margin-bottom:10px}
 .toTop{position:fixed;bottom:24px;right:24px;width:48px;height:48px;border-radius:14px;z-index:40;display:grid;place-items:center;cursor:pointer;background:linear-gradient(135deg,var(--purple),var(--gold-deep));color:#fff;border:none;font-size:1.2rem;opacity:0;transform:translateY(20px);transition:.35s;box-shadow:0 10px 26px rgba(124,58,237,.4)}
