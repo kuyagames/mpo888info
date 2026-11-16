@@ -101,7 +101,7 @@ if ($fav !== '') { $fp = __DIR__ . '/' . ltrim($fav, '/'); if (is_file($fp) && (
   <div class="hero-stage reveal">
     <div class="hero-img-box"><img src="<?= e($heroImg) ?>" alt="<?= e($siteName) ?>"></div>
     <div class="hero-cta hero-cta-over">
-      <a href="#promo" class="btn btn-bonus">🎁 Pilih Promo</a>
+      <a href="#promo" class="btn btn-bonus">🎁 Pilihan Promo</a>
       <a href="#link" class="btn btn-gold">🔗 Link Terbaru</a>
     </div>
     <div class="stats stats-over">
@@ -125,7 +125,7 @@ if ($fav !== '') { $fp = __DIR__ . '/' . ltrim($fav, '/'); if (is_file($fp) && (
     <h1 style="margin-top:18px"><?= e(sv($s,'about_title')) ?> <span class="grad"><?= e(sv($s,'about_subtitle')) ?></span></h1>
     <p class="lead"><?= e(sv($s,'about_lead')) ?></p>
     <div class="hero-cta">
-      <a href="#promo" class="btn btn-bonus">🎁 Pilih Promo</a>
+      <a href="#promo" class="btn btn-bonus">🎁 Pilihan Promo</a>
       <a href="#link" class="btn btn-gold">🔗 Link Terbaru</a>
     </div>
     <div class="stats">
