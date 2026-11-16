@@ -4,6 +4,9 @@ node_modules/
 # Jangan commit config berisi password asli — pakai config.php.example
 config.php
 config.telegram*.php
+
+# favicon.ico dibuat otomatis di server dari upload dashboard
+favicon.ico
 uploads/*
 !uploads/.gitkeep
 !uploads/.htaccess

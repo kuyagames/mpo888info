@@ -30,10 +30,13 @@ if ($ogImgRel !== '') {
 $fav     = sv($s,'favicon');
 $favType = $fav !== '' ? ((strtolower(pathinfo($fav, PATHINFO_EXTENSION)) === 'png') ? 'image/png'
          : (preg_match('/jpe?g$/i', $fav) ? 'image/jpeg' : '')) : '';
+$favW = 0; $favH = 0;
+if ($fav !== '') { $fp = __DIR__ . '/' . ltrim($fav, '/'); if (is_file($fp) && ($fd = @getimagesize($fp))) { $favW = (int)$fd[0]; $favH = (int)$fd[1]; } }
 ?>
 <title><?= e($metaTitle) ?></title>
 <meta name="description" content="<?= e($metaDesc) ?>">
-<?php if ($fav !== ''): ?><link rel="icon"<?= $favType ? ' type="' . $favType . '"' : '' ?> href="<?= e($fav) ?>">
+<?php if ($fav !== ''): ?><link rel="icon"<?= $favType ? ' type="' . $favType . '"' : '' ?> href="<?= e($fav) ?>"<?= ($favW && $favH) ? ' sizes="' . $favW . 'x' . $favH . '"' : '' ?>>
+<link rel="shortcut icon" href="/favicon.ico">
 <link rel="apple-touch-icon" href="<?= e($fav) ?>">
 <?php endif; ?>
 <meta property="og:type" content="website">

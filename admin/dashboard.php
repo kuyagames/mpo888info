@@ -28,6 +28,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     elseif ($url)                 set_setting($key, $url);
                     elseif (!empty($_POST[$clr])) set_setting($key, '');
                 }
+                // Sinkronkan /favicon.ico di root web dgn favicon dashboard (fallback klasik)
+                $rootIco = dirname(UPLOAD_DIR) . '/favicon.ico';
+                $favVal  = get_settings()['favicon'] ?? '';
+                if ($favVal !== '' && is_file(UPLOAD_DIR . '/' . basename($favVal))) {
+                    @copy(UPLOAD_DIR . '/' . basename($favVal), $rootIco);
+                } elseif ($favVal === '' && is_file($rootIco)) {
+                    @unlink($rootIco);
+                }
                 flash($msgs ? implode(' ', $msgs) : 'Pengaturan disimpan.');
                 back();
 
