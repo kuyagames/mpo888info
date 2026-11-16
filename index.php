@@ -100,14 +100,16 @@ if ($fav !== '') { $fp = __DIR__ . '/' . ltrim($fav, '/'); if (is_file($fp) && (
   <?php /* Gambar di atas; CTA (kiri-tengah) & stats (bawah) overlay di gambar; eyebrow/H1/lead di bawah */ ?>
   <div class="hero-stage reveal">
     <div class="hero-img-box"><img src="<?= e($heroImg) ?>" alt="<?= e($siteName) ?>"></div>
-    <div class="hero-cta hero-cta-over">
-      <a href="#promo" class="btn btn-bonus">🎁 Pilihan Promo</a>
-      <a href="#link" class="btn btn-gold">🔗 Link Terbaru</a>
-    </div>
-    <div class="stats stats-over">
-      <?php foreach ($stats as $st): ?>
-        <div class="stat"><div class="num"><?= e($st['num']) ?></div><div class="lbl"><?= e($st['label']) ?></div></div>
-      <?php endforeach; ?>
+    <div class="hero-overlays">
+      <div class="hero-cta hero-cta-over">
+        <a href="#promo" class="btn btn-bonus">🎁 Pilihan Promo</a>
+        <a href="#link" class="btn btn-gold">🔗 Link Terbaru</a>
+      </div>
+      <div class="stats stats-over">
+        <?php foreach ($stats as $st): ?>
+          <div class="stat"><div class="num"><?= e($st['num']) ?></div><div class="lbl"><?= e($st['label']) ?></div></div>
+        <?php endforeach; ?>
+      </div>
     </div>
   </div>
   <div class="hero-copy reveal">
