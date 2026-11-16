@@ -149,8 +149,6 @@ if ($fav !== '') { $fp = __DIR__ . '/' . ltrim($fav, '/'); if (is_file($fp) && (
   <p>© <span id="yr"></span> <?= e(sv($s,'site_name','NAMA') . sv($s,'site_accent','SITUS')) ?>.COM — Situs ini berisikan informasi resmi bonus member baru, harian, extra bonus hingga link login terbaru situs mpo888.</p>
 </footer>
 
-<a href="<?= e(sv($s,'cta_url','#')) ?>" class="cta-float" target="_blank" rel="noopener"><span class="cta-ic">🔥</span> DAFTAR / LOGIN</a>
-
 <button class="toTop" id="toTop" aria-label="Kembali ke atas">↑</button>
 
 <script src="assets/js/app.js"></script>

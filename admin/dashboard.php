@@ -150,7 +150,7 @@ $accOpts = function ($v) { $o=''; foreach (['purple','gold','pink'] as $k) $o.='
         <label>Nama (aksen emas)<input name="site_accent" value="<?= e(sv($s,'site_accent')) ?>"></label>
       </div>
       <label>Eyebrow Section Bonus (teks kecil di atas judul bonus)<input name="menu1" value="<?= e(sv($s,'menu1')) ?>"></label>
-      <label>URL Tombol DAFTAR / LOGIN (navbar)<input name="cta_url" value="<?= e(sv($s,'cta_url')) ?>" placeholder="https://..."></label>
+      <label>URL Root Tombol Promo (digabung dgn Permalink tiap promo)<input name="cta_url" value="<?= e(sv($s,'cta_url')) ?>" placeholder="https://..."></label>
       <label>Eyebrow<input name="about_eyebrow" value="<?= e(sv($s,'about_eyebrow')) ?>"></label>
       <div class="g2">
         <label>Judul Banner<input name="about_title" value="<?= e(sv($s,'about_title')) ?>"></label>
