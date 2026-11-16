@@ -94,8 +94,16 @@ section{max-width:var(--maxw);margin:0 auto;padding:60px 20px}
 .promo .pbtn:hover{background:linear-gradient(135deg,var(--gold-soft),var(--gold-deep));color:#140b22;transform:translateX(3px)}
 .promo .ribbon{position:absolute;top:12px;right:-30px;transform:rotate(45deg);background:linear-gradient(135deg,var(--gold-soft),var(--gold-deep));color:#140b22;font-size:.65rem;font-weight:800;letter-spacing:1px;padding:5px 36px;z-index:3;box-shadow:0 4px 12px rgba(0,0,0,.3)}
 .bnr-glow{position:absolute;inset:0;z-index:0;opacity:.5;background:radial-gradient(circle at 30% 20%,rgba(255,255,255,.35),transparent 55%)}
-.coin{position:absolute;bottom:-18px;left:-18px;width:70px;height:70px;border-radius:50%;z-index:0;background:radial-gradient(circle at 35% 30%,var(--gold-soft),var(--gold-deep));opacity:.85;filter:blur(1px);box-shadow:0 0 30px rgba(251,191,36,.7);animation:coinFloat 4s ease-in-out infinite}
-@keyframes coinFloat{50%{transform:translateY(-10px) rotate(12deg)}}
+.coins{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.coins i{position:absolute;top:-26px;width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff6cf,#ffd76a 42%,#f59e0b);box-shadow:0 0 10px rgba(251,191,36,.9),inset 0 -2px 3px rgba(122,77,0,.5),inset 0 2px 3px rgba(255,255,255,.7);animation:coinFall linear infinite}
+.coins i::after{content:"$";position:absolute;inset:0;display:grid;place-items:center;font:800 12px/1 'Sora',sans-serif;color:#7a4d00}
+.coins i:nth-child(1){left:7%;animation-duration:2.6s}
+.coins i:nth-child(2){left:23%;width:15px;height:15px;animation-duration:3.3s;animation-delay:.7s}
+.coins i:nth-child(3){left:40%;animation-duration:2.9s;animation-delay:1.2s}
+.coins i:nth-child(4){left:58%;width:18px;height:18px;animation-duration:3.6s;animation-delay:.35s}
+.coins i:nth-child(5){left:75%;animation-duration:2.4s;animation-delay:1.5s}
+.coins i:nth-child(6){left:89%;width:14px;height:14px;animation-duration:3.1s;animation-delay:.95s}
+@keyframes coinFall{0%{transform:translateY(0) rotate(0deg);opacity:0}8%{opacity:1}92%{opacity:1}100%{transform:translateY(230px) rotate(540deg);opacity:0}}
 .links-wrap{background:rgba(20,13,34,.5);border:1px solid var(--glass-brd);border-radius:26px;padding:40px 34px;backdrop-filter:blur(10px);position:relative;overflow:hidden}
 .links-wrap .aurora{position:absolute;inset:-50%;z-index:0;background:conic-gradient(from 90deg,#7c3aed,#fbbf24,#a855f7,#7c3aed);filter:blur(90px);opacity:.22;animation:spin 20s linear infinite}
 .link-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}

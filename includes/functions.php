@@ -122,7 +122,7 @@ function render_promo(array $p, bool $coin): string
         ? 'style="background-image:url(' . e($p['banner']) . ')"'
         : 'style="background:linear-gradient(135deg,' . bnr_grad($p['bnr']) . ')"';
     $ribbon = !empty($p['ribbon']) ? '<span class="ribbon">' . e($p['ribbon']) . '</span>' : '';
-    $coinEl = $coin ? '<span class="coin"></span>' : '';
+    $coinEl = $coin ? '<span class="coins" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>' : '';
     $label  = $hasImg ? '' : '<div><div class="label">' . e($p['label']) . '</div><div class="sub">Banner</div></div>';
     $url    = build_url($p['url']);
     $btn    = $p['btn'] !== '' ? $p['btn'] : 'Detail';
