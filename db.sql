@@ -46,6 +46,7 @@ DROP TABLE IF EXISTS bonus_groups;
 CREATE TABLE bonus_groups (
   id     INT AUTO_INCREMENT PRIMARY KEY,
   title  VARCHAR(120) NOT NULL,
+  description TEXT NULL,
   tag    VARCHAR(60)  NOT NULL DEFAULT '',
   icon   VARCHAR(16)  NOT NULL DEFAULT '🎁',
   accent VARCHAR(16)  NOT NULL DEFAULT 'purple',  -- purple | gold | pink
@@ -53,10 +54,10 @@ CREATE TABLE bonus_groups (
   sort   INT NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO bonus_groups (id, title, tag, icon, accent, coin, sort) VALUES
-(1, 'BONUS MEMBER BARU', 'NEW MEMBER',    '🎉', 'purple', 0, 1),
-(2, 'BONUS HARIAN',      'SETIAP HARI',   '📅', 'gold',   1, 2),
-(3, 'EXTRA BONUS',       'NILAI TERBESAR','💎', 'pink',   0, 3);
+INSERT INTO bonus_groups (id, title, description, tag, icon, accent, coin, sort) VALUES
+(1, 'BONUS MEMBER BARU', 'Khusus anda yang baru saja mendaftarkan user id di situs mpo888, maka pastikan anda tidak melewatkan 2 promo member baru terbaik di bawah ini.\nPastikan anda klaim salah satu bonus ini saat pertama kali melakukan deposit di karenakan bonus member baru ini hanya bisa di klaim saat anda melakukan deposit pertama kali, Setelahnya bonus member baru ini tidak dapat di klaim lagi.', 'NEW MEMBER',    '🎉', 'purple', 0, 1),
+(2, 'BONUS HARIAN',      'Bagi anda telah menjadi member loyal mpo888 dan aktif deposit setiap hari, Maka jangan lupa untuk klaim 2 bonus harian di bawah ini setiap kali anda melakukan deposit.', 'SETIAP HARI',   '📅', 'gold',   1, 2),
+(3, 'EXTRA BONUS',       'Salah satu keuntungan terbesar yang bisa anda dapatkan saat bermain di situs mpo888 adalah Extra Bonus.\nSemua extra bonus yang ada merupakan bonus tambahan yang di dapatkan di bluar dari bonus member baru & bonus harian\nDibawah ini merupakan Extra Bonus pilihan terbaik diantara beberapa bonus yang tersedia di mpo888.', 'NILAI TERBESAR','💎', 'pink',   0, 3);
 
 -- ---------- promos ----------
 DROP TABLE IF EXISTS promos;

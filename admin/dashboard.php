@@ -45,8 +45,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     ->execute(['GRUP BONUS BARU','TAG','🎁','purple',0,99]);
                 flash('Grup ditambah.'); back();
             case 'group_save':
-                db()->prepare('UPDATE bonus_groups SET title=?,tag=?,icon=?,accent=?,coin=? WHERE id=?')
-                    ->execute([$_POST['title'],$_POST['tag'],$_POST['icon'],$_POST['accent'],
+                db()->prepare('UPDATE bonus_groups SET title=?,tag=?,description=?,icon=?,accent=?,coin=? WHERE id=?')
+                    ->execute([$_POST['title'],$_POST['tag'],$_POST['description']??'',$_POST['icon'],$_POST['accent'],
                                isset($_POST['coin'])?1:0,(int)$_POST['id']]);
                 flash('Grup disimpan.'); back();
             case 'group_delete':
@@ -188,6 +188,7 @@ $accOpts = function ($v) { $o=''; foreach (['purple','gold','pink'] as $k) $o.='
           <label>Judul Grup (H3)<input name="title" value="<?= e($g['title']) ?>"></label>
           <label>Tag<input name="tag" value="<?= e($g['tag']) ?>"></label>
         </div>
+        <label>Deskripsi Section (tampil di bawah judul grup)<textarea name="description" rows="3"><?= e($g['description'] ?? '') ?></textarea></label>
         <div class="g3">
           <label>Ikon<input name="icon" value="<?= e($g['icon']) ?>"></label>
           <label>Warna Ikon<select name="accent"><?= $accOpts($g['accent']) ?></select></label>

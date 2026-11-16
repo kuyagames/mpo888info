@@ -121,9 +121,13 @@ function render_group(array $g): string
     $inner  = '';
     foreach ($promos as $p) $inner .= render_promo($p, (int)$g['coin'] === 1);
 
+    $desc   = trim((string)($g['description'] ?? ''));
+    $descEl = $desc !== '' ? '<p class="group-desc reveal">' . nl2br(e($desc)) . '</p>' : '';
+
     return '<div class="group" id="group-' . (int)$g['id'] . '"><div class="group-label reveal">'
         . '<h3><span class="ic" style="' . $icbg . '">' . e($g['icon']) . '</span> ' . e($g['title']) . '</h3>'
         . '<span class="line"></span><span class="tag">' . e($g['tag']) . '</span></div>'
+        . $descEl
         . '<div class="promos ' . $cols . '">' . $inner . '</div></div>';
 }
 function render_link(array $l): string

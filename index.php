@@ -85,8 +85,8 @@ $metaDesc  = sv($s, 'meta_desc', 'Info promo, bonus member baru, bonus harian, e
 <section id="promo">
   <div class="sec-head reveal">
     <span class="eyebrow"><?= e(sv($s,'menu1','INFO PROMO')) ?></span>
-    <h2>Daftar <span class="grad">Bonus &amp; Promo</span> Terlengkap</h2>
-    <p>Pilih promo favorit Anda. Arahkan kursor ke setiap kartu untuk melihat efeknya, lalu klik untuk klaim.</p>
+    <h2>Promo Bonus <span class="grad">Pilihan Terbaik</span></h2>
+    <p>Mpo888 menyediakan macam promo bonus terbaik seperti bonus member baru, bonus harian, bonus mingguan, hingga extra bonus. Di bawah ini merupakan daftar promo bonus pilihan terbaik yang wajib di coba saat anda bermain di situs mpo888.</p>
   </div>
   <?php foreach ($groups as $g) echo render_group($g); ?>
 </section>
