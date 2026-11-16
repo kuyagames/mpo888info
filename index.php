@@ -19,23 +19,43 @@ $artParas = array_filter(array_map('trim', explode("\n", sv($s, 'about_art_body'
 <?php
 $metaTitle = sv($s, 'meta_title', sv($s,'site_name','NAMA') . sv($s,'site_accent','SITUS') . ' — Info Promo & Link Resmi');
 $metaDesc  = sv($s, 'meta_desc', 'Info promo, bonus member baru, bonus harian, extra bonus, dan link resmi terbaru. Update setiap hari.');
+$siteName  = sv($s,'site_name','NAMA') . sv($s,'site_accent','SITUS');
 $ogImgRel  = sv($s, 'about_banner');
-$ogImgAbs  = $ogImgRel !== '' ? 'https://' . ($_SERVER['HTTP_HOST'] ?? 'mpo888info.com') . '/' . ltrim($ogImgRel, '/') : '';
+$ogImgAbs  = ''; $ogW = 0; $ogH = 0; $ogType = '';
+if ($ogImgRel !== '') {
+    $ogImgAbs = 'https://' . ($_SERVER['HTTP_HOST'] ?? 'mpo888info.com') . '/' . ltrim($ogImgRel, '/');
+    $ogPath   = __DIR__ . '/' . ltrim($ogImgRel, '/');
+    if (is_file($ogPath) && ($dim = @getimagesize($ogPath))) { $ogW = (int)$dim[0]; $ogH = (int)$dim[1]; $ogType = $dim['mime'] ?? ''; }
+}
+$fav     = sv($s,'favicon');
+$favType = $fav !== '' ? ((strtolower(pathinfo($fav, PATHINFO_EXTENSION)) === 'png') ? 'image/png'
+         : (preg_match('/jpe?g$/i', $fav) ? 'image/jpeg' : '')) : '';
 ?>
 <title><?= e($metaTitle) ?></title>
 <meta name="description" content="<?= e($metaDesc) ?>">
-<?php if (sv($s,'favicon') !== ''): ?><link rel="icon" href="<?= e(sv($s,'favicon')) ?>">
-<link rel="apple-touch-icon" href="<?= e(sv($s,'favicon')) ?>">
+<?php if ($fav !== ''): ?><link rel="icon"<?= $favType ? ' type="' . $favType . '"' : '' ?> href="<?= e($fav) ?>">
+<link rel="apple-touch-icon" href="<?= e($fav) ?>">
 <?php endif; ?>
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="<?= e($siteName) ?>">
+<meta property="og:locale" content="id_ID">
 <meta property="og:title" content="<?= e($metaTitle) ?>">
 <meta property="og:description" content="<?= e($metaDesc) ?>">
 <?php if (sv($s,'canonical') !== ''): ?><meta property="og:url" content="<?= e(sv($s,'canonical')) ?>">
 <?php endif; ?>
 <?php if ($ogImgAbs !== ''): ?><meta property="og:image" content="<?= e($ogImgAbs) ?>">
+<meta property="og:image:secure_url" content="<?= e($ogImgAbs) ?>">
+<?php if ($ogType !== ''): ?><meta property="og:image:type" content="<?= e($ogType) ?>">
+<?php endif; ?>
+<?php if ($ogW && $ogH): ?><meta property="og:image:width" content="<?= $ogW ?>">
+<meta property="og:image:height" content="<?= $ogH ?>">
+<?php endif; ?>
 <meta property="og:image:alt" content="<?= e(sv($s,'og_alt')) ?>">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="<?= e($metaTitle) ?>">
+<meta name="twitter:description" content="<?= e($metaDesc) ?>">
 <meta name="twitter:image" content="<?= e($ogImgAbs) ?>">
+<meta name="twitter:image:alt" content="<?= e(sv($s,'og_alt')) ?>">
 <?php endif; ?>
 <?php if (sv($s,'canonical') !== ''): ?><link rel="canonical" href="<?= e(sv($s,'canonical')) ?>">
 <?php endif; ?>
