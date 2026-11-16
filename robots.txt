@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /includes/
+
+Sitemap: https://mpo888info.com/sitemap.xml
