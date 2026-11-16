@@ -52,6 +52,25 @@ function get_promos(int $gid): array
     return $st->fetchAll();
 }
 
+/* Root URL tombol (dari setting cta_url / tombol DAFTAR-LOGIN) */
+function cta_root(): string
+{
+    static $r = null;
+    if ($r === null) { $s = get_settings(); $r = trim($s['cta_url'] ?? ''); }
+    return $r;
+}
+/* Gabung permalink manual dengan root cta_url. URL absolut (http...) dipakai apa adanya. */
+function build_url(string $permalink): string
+{
+    $permalink = trim($permalink);
+    if ($permalink !== '' && preg_match('#^https?://#i', $permalink)) return $permalink;
+    $root = cta_root();
+    if ($root === '') return $permalink !== '' ? $permalink : '#';
+    if ($permalink === '' || $permalink === '#') return $root;
+    if ($permalink[0] === '?' || $permalink[0] === '#') return $root . $permalink;
+    return rtrim($root, '/') . '/' . ltrim($permalink, '/');
+}
+
 /* ---------- Peta warna (samakan dengan admin) ---------- */
 function bnr_grad(string $k): string
 {
@@ -105,7 +124,7 @@ function render_promo(array $p, bool $coin): string
     $ribbon = !empty($p['ribbon']) ? '<span class="ribbon">' . e($p['ribbon']) . '</span>' : '';
     $coinEl = $coin ? '<span class="coin"></span>' : '';
     $label  = $hasImg ? '' : '<div><div class="label">' . e($p['label']) . '</div><div class="sub">Banner</div></div>';
-    $url    = $p['url'] !== '' ? $p['url'] : '#';
+    $url    = build_url($p['url']);
     $btn    = $p['btn'] !== '' ? $p['btn'] : 'Detail';
 
     return '<div class="promo reveal">' . $ribbon

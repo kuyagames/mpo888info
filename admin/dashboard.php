@@ -241,7 +241,7 @@ $accOpts = function ($v) { $o=''; foreach (['purple','gold','pink'] as $k) $o.='
         <label>Deskripsi<textarea name="description"><?= e($p['description']) ?></textarea></label>
         <div class="g3">
           <label>Teks Tombol<input name="btn" value="<?= e($p['btn']) ?>"></label>
-          <label>URL Tombol<input name="url" value="<?= e($p['url']) ?>"></label>
+          <label>Permalink Tombol (digabung ke URL DAFTAR/LOGIN)<input name="url" value="<?= e($p['url']) ?>" placeholder="mis. /register atau ?ref=abc"></label>
           <label>Warna Banner<select name="bnr"><?= $bnrOpts($p['bnr']) ?></select></label>
         </div>
         <div class="uploader">

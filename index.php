@@ -81,7 +81,6 @@ if ($fav !== '') { $fp = __DIR__ . '/' . ltrim($fav, '/'); if (is_file($fp) && (
     <div class="menu">
       <a href="#promo" class="bonus">INFO BONUS</a>
       <a href="#link" class="gold">INFO LINK</a>
-      <a href="<?= e(sv($s,'cta_url','#')) ?>" class="cta" target="_blank" rel="noopener">DAFTAR / LOGIN</a>
     </div>
   </div>
 </nav>
@@ -149,6 +148,8 @@ if ($fav !== '') { $fp = __DIR__ . '/' . ltrim($fav, '/'); if (is_file($fp) && (
   <div class="fbrand"><?= e(sv($s,'site_name','NAMA')) ?><span style="color:var(--gold-soft)"><?= e(sv($s,'site_accent','SITUS')) ?></span></div>
   <p>© <span id="yr"></span> <?= e(sv($s,'site_name','NAMA') . sv($s,'site_accent','SITUS')) ?>.COM — Situs ini berisikan informasi resmi bonus member baru, harian, extra bonus hingga link login terbaru situs mpo888.</p>
 </footer>
+
+<a href="<?= e(sv($s,'cta_url','#')) ?>" class="cta-float" target="_blank" rel="noopener"><span class="cta-ic">🔥</span> DAFTAR / LOGIN</a>
 
 <button class="toTop" id="toTop" aria-label="Kembali ke atas">↑</button>
 
