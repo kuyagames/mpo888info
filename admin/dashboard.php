@@ -16,14 +16,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             case 'settings_save':
                 foreach (['site_name','site_accent','menu1','about_eyebrow',
                           'about_title','about_subtitle','about_lead','about_art_head','about_art_body',
-                          'meta_title','meta_desc','google_tag','canonical','about_banner_full'] as $k) {
+                          'meta_title','meta_desc','google_tag','canonical','about_banner_full','og_alt'] as $k) {
                     set_setting($k, $_POST[$k] ?? '');
                 }
-                $err = null; $url = handle_upload('about_banner_file', $err);
-                if ($err)          flash('⚠ ' . $err);
-                elseif ($url)      { set_setting('about_banner', $url); flash('Pengaturan & banner disimpan.'); }
-                elseif (!empty($_POST['about_banner_clear'])) { set_setting('about_banner', ''); flash('Pengaturan disimpan, banner dihapus.'); }
-                else               flash('Pengaturan disimpan.');
+                $msgs = [];
+                foreach ([['about_banner_file','about_banner','about_banner_clear'],
+                          ['favicon_file','favicon','favicon_clear'],
+                          ['logo_file','logo','logo_clear']] as [$field,$key,$clr]) {
+                    $err = null; $url = handle_upload($field, $err);
+                    if ($err)                     $msgs[] = '⚠ ' . $err;
+                    elseif ($url)                 set_setting($key, $url);
+                    elseif (!empty($_POST[$clr])) set_setting($key, '');
+                }
+                flash($msgs ? implode(' ', $msgs) : 'Pengaturan disimpan.');
                 back();
 
             /* ---- Statistik ---- */
@@ -149,6 +154,20 @@ $accOpts = function ($v) { $o=''; foreach (['purple','gold','pink'] as $k) $o.='
         <label class="chk"><input type="checkbox" name="about_banner_full" value="1" <?= sv($s,'about_banner_full')==='1'?'checked':'' ?>> Gambar penuh (tanpa teks hero)</label>
         <?php if (sv($s,'about_banner')): ?><label class="chk"><input type="checkbox" name="about_banner_clear" value="1"> Hapus gambar</label><?php endif; ?></div>
       </div>
+      <label>Alt text banner About (dipakai sebagai OG image saat link dibagikan)<input name="og_alt" value="<?= e(sv($s,'og_alt')) ?>"></label>
+
+      <h3 style="margin:22px 0 2px">🖼️ Favicon &amp; Logo</h3>
+      <div class="uploader">
+        <div class="thumb"><?php if (sv($s,'favicon')): ?><img src="../<?= e(sv($s,'favicon')) ?>"><?php else: ?>Favicon<?php endif; ?></div>
+        <div class="uc"><label class="file">📁 Favicon (PNG, mis. 48×48 / 180×180)<input type="file" name="favicon_file" accept="image/*"></label>
+        <?php if (sv($s,'favicon')): ?><label class="chk"><input type="checkbox" name="favicon_clear" value="1"> Hapus favicon</label><?php endif; ?></div>
+      </div>
+      <div class="uploader">
+        <div class="thumb"><?php if (sv($s,'logo')): ?><img src="../<?= e(sv($s,'logo')) ?>"><?php else: ?>Logo (teks brand dipakai)<?php endif; ?></div>
+        <div class="uc"><label class="file">📁 Logo navbar (menggantikan teks brand)<input type="file" name="logo_file" accept="image/*"></label>
+        <?php if (sv($s,'logo')): ?><label class="chk"><input type="checkbox" name="logo_clear" value="1"> Hapus logo</label><?php endif; ?></div>
+      </div>
+
       <label>Judul Artikel SEO<input name="about_art_head" value="<?= e(sv($s,'about_art_head')) ?>"></label>
       <label>Isi Artikel SEO (satu baris = satu paragraf)<textarea name="about_art_body" rows="5"><?= e(sv($s,'about_art_body')) ?></textarea></label>
 

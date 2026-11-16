@@ -19,9 +19,24 @@ $artParas = array_filter(array_map('trim', explode("\n", sv($s, 'about_art_body'
 <?php
 $metaTitle = sv($s, 'meta_title', sv($s,'site_name','NAMA') . sv($s,'site_accent','SITUS') . ' — Info Promo & Link Resmi');
 $metaDesc  = sv($s, 'meta_desc', 'Info promo, bonus member baru, bonus harian, extra bonus, dan link resmi terbaru. Update setiap hari.');
+$ogImgRel  = sv($s, 'about_banner');
+$ogImgAbs  = $ogImgRel !== '' ? 'https://' . ($_SERVER['HTTP_HOST'] ?? 'mpo888info.com') . '/' . ltrim($ogImgRel, '/') : '';
 ?>
 <title><?= e($metaTitle) ?></title>
 <meta name="description" content="<?= e($metaDesc) ?>">
+<?php if (sv($s,'favicon') !== ''): ?><link rel="icon" href="<?= e(sv($s,'favicon')) ?>">
+<link rel="apple-touch-icon" href="<?= e(sv($s,'favicon')) ?>">
+<?php endif; ?>
+<meta property="og:type" content="website">
+<meta property="og:title" content="<?= e($metaTitle) ?>">
+<meta property="og:description" content="<?= e($metaDesc) ?>">
+<?php if (sv($s,'canonical') !== ''): ?><meta property="og:url" content="<?= e(sv($s,'canonical')) ?>">
+<?php endif; ?>
+<?php if ($ogImgAbs !== ''): ?><meta property="og:image" content="<?= e($ogImgAbs) ?>">
+<meta property="og:image:alt" content="<?= e(sv($s,'og_alt')) ?>">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="<?= e($ogImgAbs) ?>">
+<?php endif; ?>
 <?php if (sv($s,'canonical') !== ''): ?><link rel="canonical" href="<?= e(sv($s,'canonical')) ?>">
 <?php endif; ?>
 <?php if (sv($s,'google_tag') !== ''): ?><?= sv($s,'google_tag') ?>
@@ -39,7 +54,7 @@ $metaDesc  = sv($s, 'meta_desc', 'Info promo, bonus member baru, bonus harian, e
 
 <nav>
   <div class="nav-inner">
-    <div class="brand"><span class="dot">★</span><span><?= e(sv($s,'site_name','NAMA')) ?><b><?= e(sv($s,'site_accent','SITUS')) ?></b></span></div>
+    <div class="brand"><?php if (sv($s,'logo') !== ''): ?><img class="brand-logo" src="<?= e(sv($s,'logo')) ?>" alt="<?= e(sv($s,'site_name','NAMA') . sv($s,'site_accent','SITUS')) ?>"><?php else: ?><span class="dot">★</span><span><?= e(sv($s,'site_name','NAMA')) ?><b><?= e(sv($s,'site_accent','SITUS')) ?></b></span><?php endif; ?></div>
     <div class="menu">
       <a href="#promo" class="bonus">INFO BONUS</a>
       <a href="#link" class="gold">INFO LINK</a>
